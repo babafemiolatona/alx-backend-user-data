@@ -69,7 +69,7 @@ def before_request() -> None:
             if auth.authorization_header(request) is None and cookie is None:
                 abort(401, description="Unauthorized")
             if auth.current_user(request) is None:
-                    abort(403, description="Forbidden")
+                abort(403, description="Forbidden")
 
 
 if __name__ == "__main__":
