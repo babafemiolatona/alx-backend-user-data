@@ -50,7 +50,7 @@ def forbidden(error) -> str:
 
 
 @app.before_request
-def before_request() -> None:
+def before_request():
     """
     Before request handler
     """
