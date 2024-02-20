@@ -47,7 +47,7 @@ class DB:
         """
         try:
             return self._session.query(User).filter_by(**kwargs).one()
-        except Exception as e:
-            if not kwargs:
-                raise InvalidRequestError
-            raise NoResultFound
+        except NoResultFound:
+            raise
+        except InvalidRequestError:
+            raise
