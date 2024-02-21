@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """App module"""
-from flask import Flask
-import flask
+from flask import Flask, jsonify
 
 app = __name__(Flask)
 
@@ -9,7 +8,7 @@ app = __name__(Flask)
 @app.route("/", methods=['GET'])
 def welcome():
     """Welcome message"""
-    return flask.jsonify({"message": "Hello World!"})
+    return jsonify({"message": "Hello World!"})
 
 
 if __name__ == "__main__":
