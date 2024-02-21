@@ -8,7 +8,7 @@ app = __name__(Flask)
 @app.route("/", methods=['GET'])
 def welcome():
     """Welcome message"""
-    return jsonify({"message": "Hello World!"})
+    return jsonify({"message": "Bienvenue"})
 
 
 if __name__ == "__main__":
