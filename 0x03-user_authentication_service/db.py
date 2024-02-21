@@ -45,9 +45,11 @@ class DB:
         """
         Find a user by a given attribute
         """
-        try:
-            return self._session.query(User).filter_by(**kwargs).one()
-        except NoResultFound:
-            raise
-        except InvalidRequestError:
-            raise
+        all_users = self._session.query(User)
+        for k, v in kwargs.items():
+            if k not in User.__dict__:
+                raise InvalidRequestError
+            for usr in all_users:
+                if getattr(usr, k) == v:
+                    return usr
+        raise NoResultFound
