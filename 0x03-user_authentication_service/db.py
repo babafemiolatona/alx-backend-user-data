@@ -52,3 +52,13 @@ class DB:
             if not kwargs:
                 raise InvalidRequestError
             raise NoResultFound
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """
+        Update a user
+        """
+        user = self.find_user_by(id=user_id)
+        for k, v in kwargs.items():
+            setattr(user, k, v)
+        self._session.commit()
+        return None
