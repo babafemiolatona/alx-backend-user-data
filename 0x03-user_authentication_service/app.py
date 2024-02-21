@@ -2,13 +2,13 @@
 """App module"""
 from flask import Flask, jsonify
 
-app = __name__(Flask)
+app = Flask(__name__)
 
 
 @app.route("/", methods=['GET'])
 def welcome():
     """Welcome message"""
-    return jsonify({"message": "Bienvenue"})
+    return jsonify({"message": "Hello World!"})
 
 
 if __name__ == "__main__":
