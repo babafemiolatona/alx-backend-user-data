@@ -3,6 +3,7 @@
 import bcrypt
 from db import DB
 from user import User
+import uuid
 
 
 def _hash_password(password: str) -> bytes:
@@ -33,3 +34,7 @@ class Auth:
                                   user.hashed_password)
         except Exception:
             return False
+        
+    def _generate_uuid() -> str:
+        """Generate UUID"""
+        return str(uuid.uuid())
